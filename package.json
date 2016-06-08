@@ -1,5 +1,5 @@
 {
-  "name": "backbone",
+  "name": "@timetotrade/backbone",
   "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
   "url": "http://backbonejs.org",
   "keywords": [
@@ -37,7 +37,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jashkenas/backbone.git"
+    "url": "https://github.com/timetotrade/backbone.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "backbone.js",

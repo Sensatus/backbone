@@ -112,9 +112,24 @@
     return events;
   };
 
+  // An overridable callback to allow event objects to know when something starts
+  // listening to it when previously it had no listeners. Useful for knowing this
+  // object needs to start listening to something else.
+  // (which might be expensive to run all the time)
+  Events.onFirstListener = function() {};
+
+  // An overridable callback to allow event objects to know when the last listener
+  // stops listening to it. Useful to know this object can stop listening to it's
+  // sources.
+  Events.onNoListeners = function() {};
+
   // Bind an event to a `callback` function. Passing `"all"` will bind
   // the callback to all events fired.
   Events.on = function(name, callback, context) {
+    if (typeof this.onFirstListener === 'function' && (!this._events || _.isEmpty(this._events))) {
+      this.onFirstListener();
+    }
+
     this._events = eventsApi(onApi, this._events || {}, name, callback, {
       context: context,
       ctx: this,
@@ -192,6 +207,9 @@
       listeners: this._listeners
     });
 
+    if (typeof this.onNoListeners === 'function' && (!this._events || _.isEmpty(this._events))) {
+      this.onNoListeners();
+    }
     return this;
   };
 
