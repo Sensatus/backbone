@@ -1,15 +1,10 @@
 {
   "name": "@timetotrade/backbone",
-  "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
+  "description": "Give your JS App some minified Backbone with Models, Collections, and Events. (Views, Router, Sync removed)",
   "url": "http://backbonejs.org",
   "keywords": [
     "model",
-    "view",
-    "controller",
-    "router",
-    "server",
-    "client",
-    "browser"
+    "collection"
   ],
   "author": "Jeremy Ashkenas",
   "dependencies": {
@@ -33,7 +28,7 @@
     "lint": "eslint backbone.js test/*.js"
   },
   "main": "backbone.js",
-  "version": "1.3.3",
+  "version": "1.3.3-min",
   "license": "MIT",
   "repository": {
     "type": "git",
